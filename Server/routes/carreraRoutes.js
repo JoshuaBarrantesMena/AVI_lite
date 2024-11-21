@@ -11,7 +11,7 @@ router.post('/', authMiddleware, carreraController.createCarrera);
 router.get('/', authMiddleware, carreraController.getAllCarreras);
 
 
-router.get('/getByDepartment/:departamento_id', authMiddleware,carreraController.getCareerByDepartment);
+router.get('/departamento/:departamento_id', authMiddleware,carreraController.getCareerByDepartment);
 router.get('/universidad/:id', authMiddleware, carreraController.getCareerByUniversity); 
 router.get('/:id', authMiddleware, carreraController.getCarreraById);
 

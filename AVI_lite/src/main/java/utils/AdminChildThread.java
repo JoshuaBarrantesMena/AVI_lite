@@ -28,7 +28,6 @@ public class AdminChildThread extends Thread {
         this.token = token;
     }
 
-    // Cargar universidades
     public ObservableList<University> loadUniversities() throws IOException {
         Request request = new Request.Builder()
                 .url("http://localhost:5000/api/universidades")
@@ -54,7 +53,7 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Cargar facultades
+  
     public ObservableList<Faculty> loadFaculties(int universityId) throws IOException {
         Request request = new Request.Builder()
                 .url("http://localhost:5000/api/facultades/byUniversity?universidad_id=" + universityId)
@@ -81,7 +80,6 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Cargar departamentos
     public ObservableList<Department> loadDepartments(int facultyId) throws IOException {
         Request request = new Request.Builder()
                 .url("http://localhost:5000/api/departamentos?facultad_id=" + facultyId)
@@ -108,10 +106,9 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Cargar carreras
     public ObservableList<Career> loadCareers(int departmentId) throws IOException {
         Request request = new Request.Builder()
-                .url("http://localhost:5000/api/carreras?departamento_id=" + departmentId)
+                .url("http://localhost:5000/api/carreras/departamento/" + departmentId)
                 .addHeader("Authorization", token)
                 .get()
                 .build();
@@ -136,7 +133,7 @@ public class AdminChildThread extends Thread {
     }
 
   
-    // Crear universidad
+  
     public void createUniversity(String name) throws IOException {
         String jsonInputString = "{\"nombre\": \"" + name + "\"}";
         RequestBody body = RequestBody.create(
@@ -155,7 +152,7 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Eliminar universidad
+
     public void deleteUniversity(int universityId) throws IOException {
         Request request = new Request.Builder()
                 .url("http://localhost:5000/api/universidades/" + universityId)
@@ -169,7 +166,6 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Crear facultad
     public void createFaculty(String name, int universityId) throws IOException {
         String jsonInputString = "{\"nombre\": \"" + name + "\", \"universidad_id\": " + universityId + "}";
         RequestBody body = RequestBody.create(
@@ -188,7 +184,7 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Eliminar facultad
+
     public void deleteFaculty(int facultyId) throws IOException {
         Request request = new Request.Builder()
                 .url("http://localhost:5000/api/facultades/" + facultyId)
@@ -202,7 +198,7 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Crear departamento
+
     public void createDepartment(String name, int facultyId) throws IOException {
         String jsonInputString = "{\"nombre\": \"" + name + "\", \"facultad_id\": " + facultyId + "}";
         RequestBody body = RequestBody.create(
@@ -221,7 +217,7 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Eliminar departamento
+ 
     public void deleteDepartment(int departmentId) throws IOException {
         Request request = new Request.Builder()
                 .url("http://localhost:5000/api/departamentos/" + departmentId)
@@ -235,7 +231,7 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Crear carrera
+  
     public void createCareer(String name, int departmentId) throws IOException {
         String jsonInputString = "{\"nombre\": \"" + name + "\", \"departamento_id\": " + departmentId + "}";
         RequestBody body = RequestBody.create(
@@ -254,7 +250,7 @@ public class AdminChildThread extends Thread {
         }
     }
 
-    // Eliminar carrera
+
     public void deleteCareer(int careerId) throws IOException {
         Request request = new Request.Builder()
                 .url("http://localhost:5000/api/carreras/" + careerId)

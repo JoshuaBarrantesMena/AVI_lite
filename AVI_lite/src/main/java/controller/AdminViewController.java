@@ -102,6 +102,9 @@ careers= FXCollections.observableArrayList();
             CUni.setDisable(false);
             DUni.setDisable(false);
              CFac.setDisable(false);
+              CBcareer.getItems().clear();
+            CBfaculty.getItems().clear();
+            CBdepartment.getItems().clear();
             loadFaculties(selectedUniversity.getID());
         }
     }
@@ -113,7 +116,9 @@ careers= FXCollections.observableArrayList();
             CBdepartment.setDisable(false);
              CDep.setDisable(false);
             DFac.setDisable(false);
-            
+             CBcareer.getItems().clear();
+        
+            CBdepartment.getItems().clear();
             loadDepartments(selectedFaculty.getID());
             
         }
@@ -126,7 +131,9 @@ careers= FXCollections.observableArrayList();
             CBcareer.setDisable(false);
             DDep.setDisable(false);
             CCar.setDisable(false);
-           
+            
+             CBcareer.getItems().clear();
+           DCar.setDisable(false);
             loadCareers(selectedDepartment.getId());
         }
     }
@@ -136,8 +143,9 @@ careers= FXCollections.observableArrayList();
         Career selectedCareer = CBcareer.getSelectionModel().getSelectedItem();
         if (selectedCareer != null) {
         
+            
            DCar.setDisable(false);
-           
+           CCar.setDisable(false);
         }
     }
 
@@ -147,8 +155,12 @@ careers= FXCollections.observableArrayList();
         if (!newUniversity.isEmpty()) {
             new Thread(() -> {
                 try {
+                    CBcareer.getItems().clear();
+                    CBfaculty.getItems().clear();
+                    CBdepartment.getItems().clear();
                     adminChildThread.createUniversity(newUniversity);
                     Platform.runLater(this::loadUniversities);
+                    
                 } catch (IOException e) {
                     Platform.runLater(() -> showError("Error al crear universidad"));
                 }
@@ -161,9 +173,13 @@ careers= FXCollections.observableArrayList();
         University selectedUniversity = CBuniversitys.getSelectionModel().getSelectedItem();
         if (selectedUniversity != null) {
             new Thread(() -> {
-                try {
+                try { CBcareer.getItems().clear();
+                      CBfaculty.getItems().clear();
+                      CBdepartment.getItems().clear();
                     adminChildThread.deleteUniversity(selectedUniversity.getID());
-                    Platform.runLater(this::loadUniversities);
+                    Platform.runLater(this::loadUniversities);        
+                    
+                    
                 } catch (IOException e) {
                     Platform.runLater(() -> showError("Error al eliminar universidad"));
                 }
@@ -178,6 +194,10 @@ careers= FXCollections.observableArrayList();
         if (selectedUniversity != null && !newFaculty.isEmpty()) {
             new Thread(() -> {
                 try {
+                    
+                     CBcareer.getItems().clear();
+                     CBfaculty.getItems().clear();
+                     CBdepartment.getItems().clear();
                     adminChildThread.createFaculty( newFaculty,selectedUniversity.getID());
                     Platform.runLater(() -> loadFaculties(selectedUniversity.getID()));
                 } catch (IOException e) {
@@ -195,6 +215,9 @@ careers= FXCollections.observableArrayList();
                 try {
                     adminChildThread.deleteFaculty(selectedFaculty.getID());
                     Platform.runLater(() -> loadFaculties(selectedFaculty.getID()));
+                      CBcareer.getItems().clear();
+       
+            CBdepartment.getItems().clear();
                 } catch (IOException e) {
                     Platform.runLater(() -> showError("Error al eliminar facultad"));
                 }
@@ -209,6 +232,10 @@ careers= FXCollections.observableArrayList();
         if (selectedFaculty != null && !newDepartment.isEmpty()) {
             new Thread(() -> {
                 try {
+                    
+                     CBcareer.getItems().clear();
+       
+               CBdepartment.getItems().clear();
                     adminChildThread.createDepartment(newDepartment,selectedFaculty.getID());
                     Platform.runLater(() -> loadDepartments(selectedFaculty.getID()));
                 } catch (IOException e) {
@@ -217,20 +244,16 @@ careers= FXCollections.observableArrayList();
             }).start();
         }
     }
- @FXML
-    private void adminCourses() throws IOException{
-        App.setRoot("AdminCourses", 700, 600);
-    }
-    @FXML
-    private void adminUsers() throws IOException{
-        App.setRoot("AdminUsers", 700, 600);
-    }
-    @FXML
+    
+    
+        @FXML
     private void deleteDepartment(ActionEvent event) {
         Department selectedDepartment = CBdepartment.getSelectionModel().getSelectedItem();
         if (selectedDepartment != null) {
             new Thread(() -> {
                 try {
+                     CBcareer.getItems().clear();
+                    CBdepartment.getItems().clear();
                     adminChildThread.deleteDepartment(selectedDepartment.getId());
                     Platform.runLater(() -> loadDepartments(selectedDepartment.getId()));
                 } catch (IOException e) {
@@ -239,6 +262,49 @@ careers= FXCollections.observableArrayList();
             }).start();
         }
     }
+    
+    @FXML
+private void createCareer(ActionEvent event) {
+    Department selectedDepartment = CBdepartment.getSelectionModel().getSelectedItem(); 
+    String newCareer = Name.getText(); 
+    if (selectedDepartment != null && !newCareer.isEmpty()) {
+        new Thread(() -> {
+            try { 
+                CBcareer.getItems().clear();
+         
+                adminChildThread.createCareer(newCareer, selectedDepartment.getId()); 
+                Platform.runLater(() -> loadCareers(selectedDepartment.getId()));
+            } catch (IOException e) {
+                Platform.runLater(() -> showError("Error al crear carrera")); 
+            }
+        }).start();
+    }
+}
+
+@FXML
+private void deleteCareer(ActionEvent event) {
+    Career selectedCareer = CBcareer.getSelectionModel().getSelectedItem();
+    if (selectedCareer != null) {
+        new Thread(() -> {
+            try {
+                adminChildThread.deleteCareer(selectedCareer.getId()); 
+                Platform.runLater(() -> loadCareers(selectedCareer.getIDDepartment())); 
+            } catch (IOException e) {
+                Platform.runLater(() -> showError("Error al eliminar carrera"));
+            }
+        }).start();
+    }
+}
+    
+ @FXML
+    private void adminCourses() throws IOException{
+        App.setRoot("AdminCourses", 700, 600);
+    }
+    @FXML
+    private void adminUsers() throws IOException{
+        App.setRoot("AdminUsers", 700, 600);
+    }
+
 
     private void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

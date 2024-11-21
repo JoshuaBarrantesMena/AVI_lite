@@ -37,6 +37,9 @@ import utils.*;
 public class TeacherModAssignmentController implements Initializable {
 private final OkHttpClient client = new OkHttpClient();
     public static Assignment currentAssignment;
+    private TelegramNotification telegramNotification = new TelegramNotification(
+   "7696769229:AAENvJtKTOHK5ZbYbsbr2dIJtF5yLcShPGk",1368935005,1599144647
+    );
     private User User;
     private String token;
      private Course Course;
@@ -66,11 +69,18 @@ private final OkHttpClient client = new OkHttpClient();
     @FXML
     private void ConfirmUpdate(){
         if(currentAssignment != null){
-            // Actualizar la asignacion currentScene con los datos de los campos 'Name', 'Value' y 'Date' en la base de datos
             
+             
             updateAssignment();
             
         }else{
+            
+            
+            
+                  LocalDate fechaLimite = Date.getValue();
+   
+             telegramNotification.notifyStudentAssignment(Name.getText(), fechaLimite);
+            
           createAssignment();
     }
     }

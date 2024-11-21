@@ -6,7 +6,7 @@ const Facultad = require('../models/Facultad');
 const { Op } = require('sequelize');
 
 exports.createCarrera = async(req, res) => {
-    const { departamento_id, nombre } = req.body;
+    const {nombre,departamento_id, } = req.body;
 
     try {
         const nuevaCarrera = await career.create({ departamento_id, nombre });
@@ -69,7 +69,7 @@ exports.getCareerByUniversity= async (req, res) => {
      
 
  
-        res.json(carreras);
+     return res.json(carreras);
 
     } catch (error) {
         console.error("Error al obtener cursos por universidad:", error);

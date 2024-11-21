@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="600.0" stylesheets="@../../../css/css.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminViewController">
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="600.0" stylesheets="@../../../css/css.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminViewController">
    <children>
       <ComboBox fx:id="CBuniversitys" layoutX="56.0" layoutY="120.0" onAction="#UniversitySelected" prefHeight="50.0" prefWidth="205.0" promptText="Universidad" />
       <Label fx:id="l1" layoutX="171.0" layoutY="14.0" text="Administrar cursos">
@@ -40,15 +40,13 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="CCar" disable="true" layoutX="337.0" layoutY="384.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="205.0" text="Crear Carrera" />
+      <Button fx:id="CCar" disable="true" layoutX="337.0" layoutY="384.0" mnemonicParsing="false" onAction="#createCareer" prefHeight="33.0" prefWidth="205.0" text="Crear Carrera" />
       <Button fx:id="ACour" layoutX="55.0" layoutY="500.0" mnemonicParsing="false" onAction="#adminCourses" prefHeight="34.0" prefWidth="205.0" text="Administrar Cursos" />
       <Button fx:id="DUni" disable="true" layoutX="56.0" layoutY="212.0" mnemonicParsing="false" onAction="#deleteUniversity" prefHeight="33.0" prefWidth="205.0" text="Eliminar Universidad" />
       <Button fx:id="DFac" disable="true" layoutX="339.0" layoutY="211.0" mnemonicParsing="false" onAction="#deleteFaculty" prefHeight="33.0" prefWidth="205.0" text="Eliminar Facultad" />
       <Button fx:id="DDep" disable="true" layoutX="55.0" layoutY="422.0" mnemonicParsing="false" onAction="#deleteDepartment" prefHeight="33.0" prefWidth="205.0" text="Eliminar Departamento" />
-      <Button fx:id="DCar" disable="true" layoutX="337.0" layoutY="422.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="205.0" text="Eliminar Carrera" />
+      <Button fx:id="DCar" disable="true" layoutX="337.0" layoutY="422.0" mnemonicParsing="false" onAction="#deleteCareer" prefHeight="33.0" prefWidth="205.0" text="Eliminar Carrera" />
       <TextField fx:id="Name" layoutX="338.0" layoutY="258.0" prefHeight="26.0" prefWidth="205.0" />
-      <Button fx:id="Confirm" layoutX="56.0" layoutY="259.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="98.0" text="Confirmar" />
-      <Button fx:id="Cancel" layoutX="163.0" layoutY="259.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="98.0" text="Cancelar" />
       <ComboBox fx:id="CBcareer" disable="true" layoutX="337.0" layoutY="331.0" onAction="#CareerSelected" prefHeight="50.0" prefWidth="205.0" promptText="Carrera" />
       <Button layoutX="337.0" layoutY="500.0" mnemonicParsing="false" onAction="#adminUsers" prefHeight="34.0" prefWidth="205.0" text="Administrad Usuarios" />
    </children>

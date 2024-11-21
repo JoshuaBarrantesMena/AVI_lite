@@ -44,12 +44,11 @@ public class TeacherEnrollStudentsController implements Initializable {
     private Button Confirm;
     @FXML private ObservableList<User> Students, StudentsFiltered;
     @FXML private ObservableList<Course> Courses, CoursesFiltered;
-    
+    private TelegramNotification telegramNotification = new TelegramNotification(
+   "7696769229:AAENvJtKTOHK5ZbYbsbr2dIJtF5yLcShPGk",1368935005,1599144647
+    );
     private void ListSelect(){
-        //detectar si en ambas listas hay algo seleccionado, si las hay, verifica en DB si ese estudiante esta matriculado en el curso
-        //si lo esta, no hace nada (dar a entender que ya esta matriculado), sino, el boton confirmar se activa
-        
-        if(StudentList.getSelectionModel().getSelectedIndex() != -1&&CourseList.getSelectionModel().getSelectedIndex() != -1 ){
+       if(StudentList.getSelectionModel().getSelectedIndex() != -1&&CourseList.getSelectionModel().getSelectedIndex() != -1 ){
          Confirm.setDisable(false);
     }
         
@@ -66,6 +65,8 @@ void enrollStudent(ActionEvent event) {
         TeacherEnrollStudentsThread thread = new TeacherEnrollStudentsThread(
                 "ENROLL_STUDENT", client, token, enrollmentData, null, null, null, null
         );
+        
+        telegramNotification.notifyStudentEnrollment(selectedCourse.getName());
         thread.start();
     }
 }
@@ -90,7 +91,6 @@ void enrollStudent(ActionEvent event) {
     
     @FXML
     private void StudentFilterList(){
-        //por cada letra ingresada, se realiza una busqueda en la lista de estudiantes que contengan lo ingresado por texto, los resultados se guardan en 'StudentsFiltered'
         Students.clear();
         loadStudents();
         
@@ -99,8 +99,7 @@ void enrollStudent(ActionEvent event) {
     }
     @FXML
     private void CourseFilterList(){
-        //por cada letra ingresada, se realiza una busqueda en la lista de cursos que contengan lo ingresado por texto, los resultados se guardan en 'CoursesFiltered'
-      Courses.clear();
+       Courses.clear();
         loadCourses();
         
     }
@@ -128,9 +127,9 @@ private void loadStudents() {
         Confirm.setDisable(true);
          token = User.getInstance().getToken();
         
-        Students = FXCollections.observableArrayList();         //listas completas
+        Students = FXCollections.observableArrayList();       
         Courses = FXCollections.observableArrayList();
-        StudentsFiltered = FXCollections.observableArrayList();         //listas filtradas e incompletas
+        StudentsFiltered = FXCollections.observableArrayList();         
         CoursesFiltered = FXCollections.observableArrayList();
     }
 }

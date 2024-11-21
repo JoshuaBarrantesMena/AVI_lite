@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import utils.StudentFileThread;
+import utils.TelegramNotification;
 
 public class StudentFileController implements Initializable {
     private Assignment AssignmentInstance;
@@ -33,7 +34,9 @@ public class StudentFileController implements Initializable {
     private String token;
     private Course CourseInstance;
     private Document Document;
-
+    private TelegramNotification telegramNotification = new TelegramNotification(
+   "7696769229:AAENvJtKTOHK5ZbYbsbr2dIJtF5yLcShPGk",1368935005,1599144647
+    );
     @FXML private TextField Value, Deadline, Lastdate, State, ValueObtained, FileURL;
     @FXML private TextArea Comment;
     @FXML private Button upload, undo, Submit, Back;
@@ -112,18 +115,17 @@ public class StudentFileController implements Initializable {
     private void submitTask(ActionEvent event) {
         if (FileURL.getText().isEmpty()|| Comment.getText().isEmpty()) {
         showAlert("Campos incompletos", "Debe seleccionar un archivo.");
-        return; // No continuar si faltan datos importantes
+        return; 
     }
 
-    // Deshabilitar el botón de enviar mientras se realiza la operación
     Submit.setDisable(true);
  studentAssignment.getInstance().setComment(Comment.getText());
-    // Crear una instancia de StudentFileThread para enviar la tarea
+
     StudentFileThread thread = new StudentFileThread(User.getInstance().getToken());
     thread.setAssignmentId(AssignmentInstance.getInstance().getAssignmetnId());
     thread.setOperation("submit");
 
-    // Establecer el callback para manejar el resultado de la operación
+  
     thread.setCallback(success -> Platform.runLater(() -> {
         if (success) {
             try {
@@ -134,11 +136,16 @@ public class StudentFileController implements Initializable {
             Submit.setDisable(true);
             undo.setDisable(false);
             showAlert("Éxito", "La asignación se ha enviado correctamente.");
+            String fullName = User.getInstance().getName() + User.getInstance().getLastName();
+            
+            
+            String message = "El estudiante: " +  fullName  + ", ha enviado el trabajo. ";
+            telegramNotification.notifyProfessor(message);
             
         } else {
-            // Si hubo un error al enviar la tarea
+          
             showAlert("Error", "No se pudo enviar la asignación. Intente nuevamente.");
-            Submit.setDisable(false); // Habilitar nuevamente el botón para reintentar
+            Submit.setDisable(false); 
         }
     }));
 

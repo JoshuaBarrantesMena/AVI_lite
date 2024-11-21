@@ -159,17 +159,17 @@ public class StudentFileThread extends Thread {
  
        
        private boolean submitTask() throws IOException {
-    // 1. Crear el documento usando los datos proporcionados
+ 
     
     
     
- // Crear el documento
+
 if (document.getInstance() == null) {
-    // Si no hay documento, no podemos continuar
+   
     return false;
 }
 
-// Crear el objeto JSON para el documento
+
 JSONObject documentData = new JSONObject();
 documentData.put("id_estudiante", document.getInstance().getIDStudent());
 documentData.put("url", document.getInstance().getUrl());

@@ -1,48 +1,49 @@
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherModAssignmentController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\User.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherEnrollStudentsController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\AdminRegisterThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\Career.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\EnrollmentData.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\RegisterController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\TeacherAssignmentsThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\LoginController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\StudentSummaryController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\AdminChildThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\TelegramNotification.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\StudentFileController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\Assignment.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\Document.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\University.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\com\josh\avi_lite\App.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\Faculty.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\Department.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\TeacherAddFacAndDepThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\StudentFileThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\StudentViewController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherAddFacAndDepController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\AdminRegisterController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherFacAndDepController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\StudentSummaryThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\TeacherEnrollStudentsThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherAssignmentsController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\StudentEnrollThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\AdminUsersController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\AdminUserThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherAdminCoursesController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherDeliveredController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\Course.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\StudentCoursesController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\AppUser.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\module-info.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\TeacherModAssignmentThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\AdminViewController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\StudentAssignment.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\AdminCoursesController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\StudentEnrollController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\StudentCoursesThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\controller\TeacherViewController.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\AdminCoursesThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\IAMessage.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\TeacherAdminCoursesThread.java
-D:\Josh\Java\(UNA)\Programación III\AVI_lite\AVI_lite\src\main\java\utils\TeacherFacAndDepThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\AdminChildThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\EnrollmentData.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\AdminViewController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\AppUser.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TeacherFacAndDepThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TeacherAdminCoursesThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\Department.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\StudentAssignment.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TeacherEnrollStudentsThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherFacAndDepController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\StudentFileThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherModAssignmentController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherAdminCoursesController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\Faculty.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherAddFacAndDepController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherAssignmentsController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\StudentSummaryController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\User.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\module-info.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\Document.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherDeliveredController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\LoginController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\University.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\Assignment.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\RegisterController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\IAMessage.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\AdminUsersController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\Career.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\com\josh\avi_lite\App.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\StudentEnrollController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherViewController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TeacherDeliveredThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\AdminCoursesThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\StudentEnrollThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\StudentSummaryThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\AdminRegisterThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\StudentCoursesController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TelegramNotification.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TeacherModAssignmentThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\TeacherEnrollStudentsController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\StudentViewController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\AdminCoursesController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\Course.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TeacherAssignmentsThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\StudentCoursesThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\AdminRegisterController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\TeacherAddFacAndDepThread.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\controller\StudentFileController.java
+C:\Users\Usuario\Documents\NetBeansProjects\AVI_lite_final\AVI_lite\AVI_lite\src\main\java\utils\AdminUserThread.java

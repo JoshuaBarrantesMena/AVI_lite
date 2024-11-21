@@ -35,7 +35,7 @@ CREATE TABLE `asignaciones` (
   KEY `id_curso` (`id_curso`),
   CONSTRAINT `fk_curso_id` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`curso_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_profesor_id` FOREIGN KEY (`id_profesor`) REFERENCES `usuario` (`identificacion`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `asignaciones` (
 
 LOCK TABLES `asignaciones` WRITE;
 /*!40000 ALTER TABLE `asignaciones` DISABLE KEYS */;
-INSERT INTO `asignaciones` VALUES (2,'Jhashua',1,2,10,'2024-12-28 06:00:00','Nueva'),(3,'dsds',1,2,5,'2024-11-15 06:00:00','sada'),(4,'princesita',1,2,5,'2024-11-01 06:00:00','ffd'),(5,'fdf',1,2,5,'2024-11-01 06:00:00','dsada');
+INSERT INTO `asignaciones` VALUES (2,'Jhashua',1,2,10,'2024-12-28 06:00:00','Nueva'),(3,'dsds',1,2,5,'2024-11-15 06:00:00','sada'),(4,'princesita',1,2,5,'2024-11-01 06:00:00','ffd'),(5,'fdf',1,2,5,'2024-11-01 06:00:00','dsada'),(6,'nuevo',1,2,2,'2024-10-11 06:00:00','sdsdad');
 /*!40000 ALTER TABLE `asignaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +62,7 @@ CREATE TABLE `carreras` (
   PRIMARY KEY (`carrera_id`),
   KEY `fk_departamento_id_idx` (`departamento_id`),
   CONSTRAINT `fk_departamento_id` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos` (`departamento_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `carreras` (
 
 LOCK TABLES `carreras` WRITE;
 /*!40000 ALTER TABLE `carreras` DISABLE KEYS */;
-INSERT INTO `carreras` VALUES (1,14,'Sistemas'),(4,16,'Topografia');
+INSERT INTO `carreras` VALUES (1,14,'Sistemas'),(4,16,'Topografia'),(5,16,'Topografia Inge');
 /*!40000 ALTER TABLE `carreras` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +130,7 @@ CREATE TABLE `cursos_usuarios` (
 
 LOCK TABLES `cursos_usuarios` WRITE;
 /*!40000 ALTER TABLE `cursos_usuarios` DISABLE KEYS */;
-INSERT INTO `cursos_usuarios` VALUES (1,2),(2,2),(3,2),(8,2);
+INSERT INTO `cursos_usuarios` VALUES (1,2),(2,2),(3,2),(8,2),(2,1703190175);
 /*!40000 ALTER TABLE `cursos_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +157,7 @@ CREATE TABLE `departamentos` (
 
 LOCK TABLES `departamentos` WRITE;
 /*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
-INSERT INTO `departamentos` VALUES (14,9,'Ingenieria'),(15,10,'Jhashua'),(16,12,'Topografia'),(17,10,'Jhashua'),(18,9,'Nuevo');
+INSERT INTO `departamentos` VALUES (14,9,'Ingenieria'),(15,10,'Jhashua'),(16,12,'Topografia'),(18,9,'Nuevo');
 /*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,11 +172,11 @@ CREATE TABLE `documentos` (
   `id_documento` int NOT NULL AUTO_INCREMENT,
   `id_estudiante` int NOT NULL,
   `url` varchar(60) NOT NULL,
-  `hash_` varchar(32) NOT NULL,
+  `hash_` varchar(64) NOT NULL,
   PRIMARY KEY (`id_documento`),
   KEY `id_estudiante` (`id_estudiante`),
   CONSTRAINT `fk_estudiante_id` FOREIGN KEY (`id_estudiante`) REFERENCES `usuario` (`identificacion`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `documentos` (
 
 LOCK TABLES `documentos` WRITE;
 /*!40000 ALTER TABLE `documentos` DISABLE KEYS */;
-INSERT INTO `documentos` VALUES (1,2,'netflix.com','54'),(16,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(17,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(18,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(19,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(20,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(21,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(22,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(23,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(24,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(25,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(26,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(27,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(28,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(29,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(30,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(31,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760');
+INSERT INTO `documentos` VALUES (1,2,'netflix.com','54'),(16,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(17,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(18,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(19,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(20,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(21,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(22,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(23,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(24,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(25,2,'C:\\Users\\Usuario\\Desktop\\sdsd.txt','239397621760'),(32,2,'C:\\Users\\Usuario\\Desktop\\asdasd.txt','239397621760'),(33,2,'C:\\Users\\Usuario\\Desktop\\asdasd.txt','239397621760');
 /*!40000 ALTER TABLE `documentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +228,7 @@ CREATE TABLE `ia` (
   `valor` int(10) unsigned zerofill NOT NULL,
   `respuesta` varchar(200) NOT NULL,
   PRIMARY KEY (`id_ia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,6 +237,7 @@ CREATE TABLE `ia` (
 
 LOCK TABLES `ia` WRITE;
 /*!40000 ALTER TABLE `ia` DISABLE KEYS */;
+INSERT INTO `ia` VALUES (1,0000000001,'Necesitas mejorar tus esfuerzos y comprensión del tema, sigue practicando y buscando ayuda.'),(2,0000000002,'Buen intento, pero aún necesitas mejorar en algunos aspectos clave. No te desanimes.'),(3,0000000003,'Estás progresando, pero aún necesitas reforzar ciertos conceptos. Sigue trabajando en ello.'),(4,0000000004,'Buen esfuerzo, aunque hay algunas áreas que puedes mejorar. Continúa practicando.'),(5,0000000005,'Buen trabajo, pero debes seguir practicando para mejorar la precisión y profundidad.'),(6,0000000006,'Has hecho un buen progreso, pero aún puedes hacerlo mejor. Revisa tus errores y sigue aprendiendo.'),(7,0000000007,'Excelente trabajo, has superado varios obstáculos y dominado los temas principales.'),(8,0000000008,'Muy bien hecho, tu comprensión del tema es sólida. Solo algunos pequeños detalles por ajustar.'),(9,0000000009,'Impresionante rendimiento, has demostrado un dominio excepcional del tema.'),(10,0000000010,'Excelente. Tu conocimiento es profundo y completo, ¡sigue así! Has hecho un trabajo sobresaliente.');
 /*!40000 ALTER TABLE `ia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,7 +299,7 @@ CREATE TABLE `lista_asignaciones` (
 
 LOCK TABLES `lista_asignaciones` WRITE;
 /*!40000 ALTER TABLE `lista_asignaciones` DISABLE KEYS */;
-INSERT INTO `lista_asignaciones` VALUES (2,2,24,1,0000000000,'2024-11-21 03:14:51','sd'),(3,2,23,1,0000000000,'2024-11-21 03:12:27','sds'),(4,2,31,0,0000000000,'2024-11-21 03:59:00','Comentarios');
+INSERT INTO `lista_asignaciones` VALUES (2,2,33,1,0000000008,'2024-11-21 18:15:31','Muy bien hecho, tu comprensión del tema es sólida. Solo algunos pequeños detalles por ajustar.'),(4,2,16,0,0000000000,'2024-11-01 06:00:00','sds');
 /*!40000 ALTER TABLE `lista_asignaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -366,4 +367,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-20 22:04:28
+-- Dump completed on 2024-11-21 12:16:51

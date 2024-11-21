@@ -12,7 +12,7 @@ router.get('/', authMiddleware, documentoController.getAllDocumentos);
 
 router.get('/:id', authMiddleware, documentoController.getDocumentoById);
 
-//router.put('/:id', authMiddleware, documentoController.updateDocumento);
+router.put('/:id', authMiddleware, documentoController.updateDocumento);
 
 router.delete('/:id', authMiddleware, documentoController.deleteDocumento);
 

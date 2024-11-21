@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -28,6 +29,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import utils.*;
 
@@ -51,7 +53,7 @@ private final OkHttpClient client = new OkHttpClient();
     public static void setCurrentAssignment(Assignment currentAssignment) {
         TeacherDeliveredController.currentAssignment = currentAssignment;
     }
-    
+    private Document currentDocument;
     @FXML private Label Name, Description;
     
     @FXML private TextField URL, Date, Value;
@@ -65,7 +67,7 @@ private final OkHttpClient client = new OkHttpClient();
     @FXML private ListView<User> StudentList;
     private ObservableList<User> AllStudents;
     private ObservableList<User> FilteredStudents;
-     private ObservableList<StudentAssignment> Delivered;            // Clase faltante, lista de asignaciones entregadas de la asignacion principal
+     private ObservableList<StudentAssignment> Delivered;            
     
     @FXML
     private void ReturnScene() throws IOException{
@@ -75,7 +77,7 @@ private final OkHttpClient client = new OkHttpClient();
     }
     @FXML
     private void FilterSelected(){
-        // IA = null;
+   
         if(CBFilter.getSelectionModel().getSelectedIndex() == 0){
             sortDelivered();
         }else{
@@ -84,26 +86,105 @@ private final OkHttpClient client = new OkHttpClient();
     }
     @FXML
     private void StudentSelected(){
-        // IA = null;
+       
         if(!StudentList.getSelectionModel().isEmpty()){
-            // Obtener objeto archivo de la asignacion entregada del estudiante seleccionado, guardarlo en currentDocument y cargar el url en 'URL'
-            // Si el documento tiene una IA asosiada, cargarla en 'IA, desactivar el boton 'Upload', 'Value' y 'Comment' y cambiar texto de 'RateByIA' por "Calificación Manual"
-            // Cargar parametros de la asignacion del estudiante seleccionado en 'Date', 'Value' y 'Comment' 
+            User student = StudentList.getSelectionModel().getSelectedItem();
+            StudentAssignment fillAssignment = searchStudentAssignment(student.getID());
+            if(!(fillAssignment==null)){
+             
+               Date.setText(fillAssignment.formatDate());
+             Value.setText(Integer.toString(fillAssignment.getValue()));
+             Comment.setText(fillAssignment.getComment());
+             
+             getDocument(fillAssignment.getIDDoc());
+             
+             URL.setText(currentDocument.getUrl());
+           
+            
+            
+            }
         }
     }
+   
     @FXML
-    private void OpenFile(){
-        // DESKTOP LIBRARY
+    private void IARate() throws IOException{
+        
+        
+        User student = StudentList.getSelectionModel().getSelectedItem();
+        
+         StudentAssignment fillAssignment = searchStudentAssignment(student.getID());
+       int IAId = transformToRange(fillAssignment.hashCode());
+       IAMessage ia = getIa(IAId);
+        
+        
+         
+       
+
+        if(!(fillAssignment.isRated())){
+        LocalDateTime now = LocalDateTime.now();
+  
+  User currentStudent = StudentList.getSelectionModel().getSelectedItem();
+  
+  
+    JSONObject assignmentData = new JSONObject();
+    assignmentData.put("id_asignacion", currentAssignment.getAssignmetnId()); 
+    assignmentData.put("id_estudiante", currentStudent.getID());
+    assignmentData.put("calificado", 1);
+    assignmentData.put("valor_obtenido", ia.getValue() );
+    assignmentData.put("fecha_entregado", now);
+    assignmentData.put("comentario",ia.getMessage() );
+
+
+              RequestBody body = RequestBody.create(
+                assignmentData.toString(),
+                MediaType.get("application/json; charset=utf-8")
+        );
+         
+
+        Request request = new Request.Builder()
+                .url("http://localhost:5000/api/lista-asignaciones/" + searchDocument(currentStudent.getID()))
+                .addHeader("Authorization", token)
+                .put(body)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (response.isSuccessful()) {
+              
+            } else {
+                throw new IOException("Error al actualizar la asignación: " + response.code());
+            }
+        }   catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            
+            
+            
+        }
+        
+        ReturnScene();
+        
+        
+        }
+      
+       
+    
+    
+    public int transformToRange(long bytes) {
+    int result = (int) (bytes % 10);
+    
+    if (result == 0) {
+        result = 10;
     }
-    @FXML
-    private void IARate(){
-        // Si 'IA' es nula, asignarle un mensaje de IA al archivo (falta plantear la logica), boton 'Upload', 'Value' y 'Comment' se desactivan.
-        // Si no es nula, eliminar la relacion entre el documento y la IA en la base de datos, variable 'IA' se vuelve nula, boton 'Upload', 'Value' y 'Comment' se activan
-    }
+    
+    return result;
+}
+
+    
     @FXML
     private void UploadRate() throws IOException{
+        
         if(!Value.getText().equals("")){
-            // actualizar la asignacion subida por el estudiante con la calificacion obtenida y el comentario
+          
             
             LocalDateTime now = LocalDateTime.now();
   
@@ -111,7 +192,7 @@ private final OkHttpClient client = new OkHttpClient();
   
   
     JSONObject assignmentData = new JSONObject();
-    assignmentData.put("id_asignacion", currentAssignment.getAssignmetnId()); // Ajusta según lo que tengas definido
+    assignmentData.put("id_asignacion", currentAssignment.getAssignmetnId()); 
     assignmentData.put("id_estudiante", currentStudent.getID());
     assignmentData.put("calificado", 1);
     assignmentData.put("valor_obtenido", String.valueOf(Value.getText()));
@@ -151,7 +232,7 @@ private final OkHttpClient client = new OkHttpClient();
     }
     
     private void getStudents(){
-        // Obtener todos los estudiantes del curso (currentAssignment.getIDCourse()) y guardarlos en 'StudentList'
+        
         
               Request request = new Request.Builder()
                 .url("http://localhost:5000/api/inscripciones/usuarios/" + currentAssignment.getCourseId())
@@ -191,7 +272,7 @@ private final OkHttpClient client = new OkHttpClient();
     }
     }
     private void getDelivered(){
-        // Obtener todas las asignaciones entregadas de 'currentAssignment' y guardarlos en 'Delivered'
+       
          Request request = new Request.Builder()
                 .url("http://localhost:5000/api/lista-asignaciones/" + currentAssignment.getAssignmetnId())
                 .addHeader("Authorization", token)
@@ -229,25 +310,43 @@ private final OkHttpClient client = new OkHttpClient();
         ex.printStackTrace();
     }
         }
-      
-        
-    
-    private void sortDelivered(){
-        FilteredStudents.clear();
-        for(User currentStudent : AllStudents){                                         // Descomentar el ciclo cuando la clase faltante sea creada y definida
-            for(StudentAssignment currentDelivered : Delivered){
-                if(currentDelivered.getIDStudent() == currentStudent.getID()){
-                    FilteredStudents.add(currentStudent);
-                    break;
-                }
-            }
+   
+ private IAMessage getIa(int iaId) {
+    String url = "http://localhost:5000/api/ia/" + iaId;  
+    Request request = new Request.Builder()
+            .url(url)
+            .addHeader("Authorization", token)  
+            .get()
+            .build();
+
+    try (Response response = client.newCall(request).execute()) {
+        if (!response.isSuccessful()) {
+            throw new IOException("Error al obtener el documento IA: " + response.code());
         }
+
+      
+        String responseData = response.body().string();
+        JSONObject jsonIaDocument = new JSONObject(responseData);
+
+       
+        IAMessage iaDocument = new IAMessage(
+                jsonIaDocument.getInt("id_ia"),
+                jsonIaDocument.getInt("valor"),
+                jsonIaDocument.getString("respuesta")
+        );
+
+        
+       return iaDocument;
+
+    } catch (IOException | JSONException ex) {
+        ex.printStackTrace();
     }
-    
+    return null;
+}
     
      private int searchDocument(int studentId){
      
-                                               // Descomentar el ciclo cuando la clase faltante sea creada y definida
+
             for(StudentAssignment currentDelivered : Delivered){
                 if(currentDelivered.getIDStudent() == studentId){
                    
@@ -257,6 +356,20 @@ private final OkHttpClient client = new OkHttpClient();
             return 0;
         
     }
+      private StudentAssignment searchStudentAssignment(int studentId){
+     
+
+            for(StudentAssignment currentDelivered : Delivered){
+                if(currentDelivered.getIDStudent() == studentId){
+                   
+                   return currentDelivered;
+                }
+            }
+    return null;
+           
+        
+    }
+     
     private void sortUndelivered(){
         FilteredStudents.clear();
         boolean isNotDelivered = true;
@@ -273,7 +386,51 @@ private final OkHttpClient client = new OkHttpClient();
         }
     }
     
+      private void getDocument(int documentId) {
+    String url = "http://localhost:5000/api/documentos/" + documentId; // URL base de la API
+    Request request = new Request.Builder()
+            .url(url)
+            .addHeader("Authorization", token) 
+            .get()
+            .build();
+
+    try (Response response = client.newCall(request).execute()) {
+        if (!response.isSuccessful()) {
+            throw new IOException("Error al obtener el documento: " + response.code());
+        }
+
+      
+        String responseData = response.body().string();
+        JSONObject jsonDocument = new JSONObject(responseData);
+
+      
+        Document document = new Document(
+                jsonDocument.getInt("id_documento"),
+                jsonDocument.getInt("id_estudiante"),
+                jsonDocument.getString("url"),
+                jsonDocument.getString("hash_")
+        );
+
+        currentDocument = document;
+
+    } catch (IOException | JSONException ex) {
+        ex.printStackTrace();
+    }
+}
+
+        
     
+    private void sortDelivered(){
+        FilteredStudents.clear();
+        for(User currentStudent : AllStudents){                                        
+            for(StudentAssignment currentDelivered : Delivered){
+                if(currentDelivered.getIDStudent() == currentStudent.getID()){
+                    FilteredStudents.add(currentStudent);
+                    break;
+                }
+            }
+        }
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
