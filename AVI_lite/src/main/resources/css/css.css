@@ -1,0 +1,299 @@
+* {
+    -fx-color-accent: #3498db; /* Azul como color de acento */
+}
+
+Label {
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #3498db; /* Texto azul */
+    -fx-opacity: 0.6;
+}
+
+Slider {
+    -fx-padding: 10 5 5 5;
+}
+
+TextField {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-radius: 0;
+    -fx-background-color: white; /* Fondo blanco */
+}
+
+PasswordField {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-radius: 0;
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-text-fill: black; /* Texto de color negro */
+}
+
+TextArea {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-radius: 0;
+    -fx-background-color: white; /* Fondo blanco */
+}
+
+TextArea .text-field {
+    -fx-font-size: 10pt;
+    -fx-border-color: transparent; /* Elimina bordes internos */
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-background-radius: 0; /* Sin bordes redondeados */
+    -fx-background-insets: 0, 0; /* Elimina el sombreado */
+}
+
+AnchorPane {
+    -fx-border-color: #3498db; /* Borde azul */
+    -fx-border-width: 3;
+}
+
+Button {
+    -fx-border-color: #3498db; /* Borde azul */
+    -fx-border-width: 2;
+    -fx-border-radius: 0;
+    -fx-background-color: #3498db; /* Fondo azul */
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: white; /* Texto blanco */
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+Button:hover {
+    -fx-text-fill: white; /* Texto blanco al pasar el ratón */
+    -fx-border-color: white; /* Borde blanco al pasar el ratón */
+}
+
+Button:pressed, Button:default:hover:pressed {
+    -fx-background-color: white; /* Fondo blanco al presionar */
+    -fx-text-fill: #3498db; /* Texto azul al presionar */
+}
+
+Button:focused {
+    -fx-border-color: white, white; /* Borde blanco al estar enfocado */
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+}
+
+Button:disabled, Button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: lightgray; /* Fondo gris claro cuando está deshabilitado */
+    -fx-text-fill: darkgray; /* Texto gris oscuro cuando está deshabilitado */
+}
+
+Button:default {
+    -fx-background-color: white; /* Fondo blanco por defecto */
+    -fx-text-fill: #3498db; /* Texto azul por defecto */
+}
+
+Button:default:hover {
+    -fx-background-color: derive(white, 30%); /* Fondo blanco derivado al pasar el ratón */
+}
+
+DatePicker {
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-font-family: "Segoe UI Semibold"; /* Fuente */
+    -fx-font-size: 12pt; /* Tamaño de la fuente */
+    -fx-text-fill: #3498db; /* Texto azul */
+    -fx-background-radius: 5px; /* Bordes redondeados */
+}
+
+DatePicker .text-field {
+    -fx-background-color: white; /* Fondo blanco sólido */
+    -fx-background-insets: 0; /* Elimina el sombreado */
+    -fx-padding: 5px; /* Ajuste de padding */
+    -fx-border-color: transparent; /* Elimina bordes internos */
+    -fx-background-radius: 0; /* Sin bordes redondeados internos */
+}
+
+DatePicker:hover {
+    -fx-border-color: white; /* Borde blanco al pasar el ratón */
+}
+
+DatePicker:focused {
+    -fx-border-color: #3498db; /* Borde azul al estar enfocado */
+    -fx-border-width: 2px;
+}
+
+DatePicker:disabled {
+    -fx-opacity: 0.6; /* Opacidad reducida cuando está deshabilitado */
+    -fx-background-color: lightgray; /* Fondo gris claro */
+    -fx-text-fill: darkgray; /* Texto gris oscuro */
+}
+
+/* Estilo del botón desplegable dentro del DatePicker */
+DatePicker .arrow-button {
+    -fx-background-color: #3498db; /* Fondo azul */
+    -fx-border-color: #3498db;
+    -fx-border-width: 0;
+}
+
+DatePicker .arrow-button:hover {
+    -fx-background-color: white; /* Fondo blanco al pasar el ratón */
+    -fx-border-color: #3498db;
+}
+
+/* Estilo de las celdas dentro del calendario desplegable */
+.date-picker-popup .month-view .day-cell {
+    -fx-text-fill: #3498db; /* Texto azul */
+    -fx-background-color: white; /* Fondo blanco */
+}
+
+.date-picker-popup .month-view .day-cell:selected {
+    -fx-background-color: #3498db; /* Fondo azul al seleccionar */
+    -fx-text-fill: white; /* Texto blanco */
+}
+
+.date-picker-popup .month-view .day-cell:hover {
+    -fx-background-color: derive(#3498db, 30%); /* Fondo derivado al pasar el ratón */
+}
+
+ListView {
+    -fx-background-color: white;
+    -fx-border-color: #3498db; /* Borde azul */
+    -fx-border-width: 2px;
+    -fx-background-radius: 5px;
+}
+
+/* Estilo específico para las celdas dentro de ListView */
+ListView .list-cell {
+    -fx-text-fill: #3498db; /* Texto azul */
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 8px;
+    -fx-background-color: white; /* Fondo blanco */
+}
+
+ListView .list-cell:focused {
+    -fx-background-color: derive(#3498db, 30%); /* Fondo derivado al estar enfocado */
+    -fx-text-fill: white; /* Texto blanco */
+}
+
+ListView .list-cell:hover {
+    -fx-background-color: #3498db; /* Fondo azul al pasar el ratón */
+    -fx-text-fill: white; /* Texto blanco */
+}
+
+ListView .list-cell:selected {
+    -fx-background-color: #3498db; /* Fondo azul al seleccionar */
+    -fx-text-fill: white; /* Texto blanco */
+}
+
+/* Estilo para ComboBox */
+ComboBox {
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-border-color: #3498db; /* Borde azul */
+    -fx-border-width: 2px;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 12pt;
+    -fx-text-fill: #3498db; /* Texto azul */
+    -fx-background-radius: 5px;
+}
+
+ComboBox .combo-box-popup {
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-border-color: #3498db; /* Borde azul */
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+ComboBox .list-cell {
+    -fx-text-fill: #3498db; /* Texto azul */
+}
+
+ComboBox:hover {
+    -fx-border-color: white; /* Borde blanco al pasar el ratón */
+}
+
+ComboBox:focused {
+    -fx-border-color: #3498db; /* Borde azul al estar enfocado */
+    -fx-border-width: 2px;
+}
+
+ComboBox:disabled {
+    -fx-opacity: 0.6; /* Opacidad reducida cuando está deshabilitado */
+    -fx-background-color: lightgray; /* Fondo gris claro */
+    -fx-text-fill: darkgray; /* Texto gris oscuro */
+}
+
+ToggleButton {
+    -fx-background-color: #3498db; /* Fondo azul cuando no está seleccionado */
+    -fx-border-color: #3498db; /* Borde azul */
+    -fx-border-width: 1px; /* Borde más delgado */
+    -fx-border-radius: 3px; /* Bordes redondeados más pequeños */
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif; /* Fuente moderna */
+    -fx-font-size: 10pt; /* Tamaño de fuente más pequeño */
+    -fx-text-fill: white; /* Texto blanco cuando no está seleccionado */
+    -fx-padding: 6px 10px; /* Espaciado interno más ajustado */
+    -fx-background-radius: 3px; /*
+        -fx-background-radius: 3px; /* Bordes redondeados más pequeños */
+}
+
+ToggleButton:hover {
+    -fx-background-color: #f0f0f0; /* Fondo gris claro al pasar el ratón */
+    -fx-border-color: #3498db; /* Mantener el borde azul */
+    -fx-text-fill: #3498db; /* Texto azul al pasar el ratón */
+}
+
+ToggleButton:pressed {
+    -fx-background-color: #2980b9; /* Fondo azul más oscuro cuando está presionado */
+    -fx-text-fill: white; /* Texto blanco cuando está presionado */
+}
+
+ToggleButton:selected {
+    -fx-background-color: white; /* Fondo blanco cuando está seleccionado */
+    -fx-text-fill: #3498db; /* Texto azul cuando está seleccionado */
+}
+
+ToggleButton:focused {
+    -fx-border-color: #007acc; /* Borde azul cuando tiene el foco */
+    -fx-border-width: 2px; /* Borde más delgado al tener foco */
+    -fx-border-radius: 3px; /* Bordes redondeados más pequeños al tener foco */
+}
+
+ToggleButton:disabled {
+    -fx-background-color: lightgray; /* Fondo gris claro cuando está deshabilitado */
+    -fx-text-fill: darkgray; /* Texto gris oscuro cuando está deshabilitado */
+    -fx-border-color: #cccccc; /* Borde gris claro cuando está deshabilitado */
+}
+
+TableView {
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-border-color: #3498db; /* Borde azul */
+    -fx-border-width: 2px; /* Borde de 2px */
+    -fx-background-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo para las celdas dentro de la TableView */
+TableView .table-cell {
+    -fx-text-fill: #333333; /* Texto gris oscuro para buena legibilidad */
+    -fx-font-family: "Segoe UI"; /* Fuente moderna */
+    -fx-padding: 8px; /* Espaciado interno */
+    -fx-background-color: white; /* Fondo blanco */
+}
+
+/* Estilo cuando la celda está enfocada */
+TableView .table-cell:focused {
+    -fx-background-color: #e1f5fe; /* Fondo claro cuando está enfocada */
+    -fx-text-fill: #333333; /* Texto gris oscuro para buena visibilidad */
+}
+
+/* Estilo cuando se pasa el ratón sobre la celda */
+TableView .table-cell:hover {
+    -fx-background-color: #e1f5fe; /* Fondo claro al pasar el ratón */
+    -fx-text-fill: #333333; /* Texto gris oscuro para buena visibilidad */
+}
+
+/* Estilo cuando una celda está seleccionada */
+TableView .table-cell:selected {
+    -fx-background-color: #3498db; /* Fondo azul cuando está seleccionada */
+    -fx-text-fill: white; /* Texto blanco para buena visibilidad */
+}
+
+/* Estilo para las cabeceras de las columnas */
+TableView .column-header {
+    -fx-text-fill: white; /* Texto blanco en las cabeceras */
+    -fx-font-family: "Segoe UI"; /* Fuente moderna */
+    -fx-font-size: 10pt; /* Tamaño de fuente */
+    -fx-background-color: #3498db; /* Fondo azul en las cabeceras */
+}

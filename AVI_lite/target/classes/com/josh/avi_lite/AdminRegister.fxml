@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="360.0" spacing="10.0" stylesheets="@../../../css/css.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminRegisterController">
+   <children>
+      <Label fx:id="l1" prefHeight="48.0" prefWidth="192.0" text="Nuevo Registro">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="33.0" prefWidth="339.0">
+         <children>
+            <TextField fx:id="universityID" prefHeight="33.0" prefWidth="40.0" promptText="Uni" />
+            <Label text=":">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ID" prefHeight="34.0" prefWidth="293.0" promptText="Identificación">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <TextField fx:id="Name" prefHeight="33.0" prefWidth="276.0" promptText="Nombre">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="LastName" prefHeight="33.0" prefWidth="276.0" promptText="Apellidos">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <HBox prefHeight="33.0" prefWidth="339.0">
+         <children>
+            <PasswordField fx:id="Pass" prefHeight="33.0" prefWidth="290.0" promptText="Contraseña" />
+            <ToggleButton fx:id="eye" mnemonicParsing="false" onAction="#MakeVisible" prefHeight="33.0" prefWidth="50.0" text="👁️‍🗨️" />
+         </children>
+      </HBox>
+      <TextField fx:id="Mail" prefHeight="33.0" prefWidth="276.0" promptText="Correo">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <HBox prefHeight="86.0" prefWidth="379.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="190.0" spacing="5.0">
+               <children>
+                  <ComboBox fx:id="CBUserType" prefHeight="39.0" prefWidth="150.0" promptText="Tipo" />
+                  <Button fx:id="Register" mnemonicParsing="false" onAction="#register" prefHeight="35.0" prefWidth="110.0" text="Registrarse">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="190.0" spacing="5.0">
+               <children>
+                  <ComboBox fx:id="CBuniversitys" onAction="#universitySelected" prefHeight="39.0" prefWidth="150.0" promptText="Universidad" />
+                  <Button fx:id="Cancel" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="35.0" prefWidth="110.0" text="Cancelar">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

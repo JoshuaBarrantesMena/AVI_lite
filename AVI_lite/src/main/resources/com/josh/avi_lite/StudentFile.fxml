@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="550.0" spacing="1.0" stylesheets="@../../../css/css.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentFileController">
+   <children>
+      <Label fx:id="Course" text="Nombe del curso">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Separator prefWidth="200.0" />
+      <Label fx:id="Assignment" text="Titulo de asignación">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="Description" text="Descripción" wrapText="true">
+         <font>
+            <Font name="Arial Italic" size="14.0" />
+         </font>
+      </Label>
+      <Separator prefHeight="20.0" prefWidth="579.0" />
+      <HBox prefHeight="184.0" prefWidth="579.0">
+         <children>
+            <VBox prefHeight="184.0" prefWidth="170.0" spacing="4.0">
+               <children>
+                  <Label fx:id="l1" text="Valor porcentual">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Value" editable="false" prefHeight="26.0" prefWidth="126.0" promptText="Sin valor" />
+                  <Separator opacity="0.0" prefHeight="20.0" prefWidth="130.0" />
+                  <Label fx:id="l2" text="Fecha Limite">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Deadline" editable="false" promptText="Sin limite de tiempo" />
+                  <Separator layoutX="10.0" layoutY="56.0" opacity="0.0" prefHeight="20.0" prefWidth="130.0" />
+                  <Label fx:id="l3" text="Ultima modificación">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Lastdate" editable="false" promptText="Sin cambios" />
+               </children>
+            </VBox>
+            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="184.0" prefWidth="35.0" />
+            <VBox prefHeight="184.0" prefWidth="170.0" spacing="4.0">
+               <children>
+                  <Label fx:id="l5" text="Estado">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="State" editable="false" promptText="NA" />
+                  <Separator opacity="0.0" prefHeight="20.0" prefWidth="170.0" />
+                  <Label fx:id="l6" text="Valor Obtenido">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ValueObtained" editable="false" promptText="Sin calificar" />
+               </children>
+            </VBox>
+            <Separator layoutX="140.0" layoutY="10.0" opacity="0.0" orientation="VERTICAL" prefHeight="184.0" prefWidth="35.0" />
+            <VBox prefHeight="184.0" prefWidth="190.0" spacing="4.0">
+               <children>
+                  <Label fx:id="l4" text="Comentarios">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="Comment" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Separator opacity="0.0" prefHeight="20.0" prefWidth="579.0" />
+      <VBox prefHeight="29.0" prefWidth="498.0">
+         <children>
+            <Label fx:id="l7" text="Archivo adjunto">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="28.0" prefWidth="579.0">
+               <children>
+                  <Button fx:id="upload" mnemonicParsing="false" onAction="#getFile" prefHeight="26.0" prefWidth="100.0" text="Subir archivo" />
+                  <TextField fx:id="FileURL" editable="false" prefHeight="26.0" prefWidth="295.0" promptText="Sin archivo" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Separator prefHeight="30.0" prefWidth="579.0" />
+      <HBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="498.0" spacing="20.0">
+         <children>
+            <Button fx:id="undo" mnemonicParsing="false" onAction="#undoTask" prefHeight="31.0" prefWidth="130.0" text="Deshacer entrega" />
+            <Button fx:id="Submit" mnemonicParsing="false" onAction="#submitTask" prefHeight="26.0" prefWidth="130.0" text="Entregar" />
+            <Button fx:id="Back" mnemonicParsing="false" onAction="#ReturnScene" prefHeight="26.0" prefWidth="130.0" text="Atras" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
